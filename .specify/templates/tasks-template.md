@@ -1,6 +1,5 @@
 ---
-
-description: "Task list template for feature implementation"
+description: 'Task list template for feature implementation'
 ---
 
 # Tasks: [FEATURE NAME]
@@ -25,21 +24,21 @@ description: "Task list template for feature implementation"
 - **Mobile**: `api/src/`, `ios/src/` or `android/src/`
 - Paths shown below assume single project - adjust based on plan.md structure
 
-<!-- 
+<!--
   ============================================================================
   IMPORTANT: The tasks below are SAMPLE TASKS for illustration purposes only.
-  
+
   The /speckit.tasks command MUST replace these with actual tasks based on:
   - User stories from spec.md (with their priorities P1, P2, P3...)
   - Feature requirements from plan.md
   - Entities from data-model.md
   - Endpoints from contracts/
-  
+
   Tasks MUST be organized by user story so each story can be:
   - Implemented independently
   - Tested independently
   - Delivered as an MVP increment
-  
+
   DO NOT keep these sample tasks in the generated tasks.md file.
   ============================================================================
 -->
@@ -62,6 +61,22 @@ description: "Task list template for feature implementation"
 
 Examples of foundational tasks (adjust based on your project):
 
+**For React Native/Expo Mobile Apps (per constitution)**:
+
+- [ ] T004 Setup Expo SDK with TypeScript strict mode configuration
+- [ ] T005 [P] Configure NativeWind (Tailwind) and component library (React Native Reusables/Gluestack)
+- [ ] T006 [P] Setup React Navigation (Native Stack) structure
+- [ ] T007 [P] Configure TanStack Query for server state management
+- [ ] T008 [P] Setup Zustand stores for global client state
+- [ ] T009 [P] Configure react-native-mmkv for local storage
+- [ ] T010 [P] Setup error boundaries (react-error-boundary) and error reporting (Sentry)
+- [ ] T011 [P] Configure Safe Area handling (react-native-safe-area-context)
+- [ ] T012 Setup absolute imports (@/components, @/features, etc.)
+- [ ] T013 Configure testing (Jest + React Native Testing Library, Maestro for E2E)
+- [ ] T014 Setup EAS Build and Update workflows
+
+**For General Projects**:
+
 - [ ] T004 Setup database schema and migrations framework
 - [ ] T005 [P] Implement authentication/authorization framework
 - [ ] T006 [P] Setup API routing and middleware structure
@@ -83,8 +98,8 @@ Examples of foundational tasks (adjust based on your project):
 
 > **NOTE: Write these tests FIRST, ensure they FAIL before implementation**
 
-- [ ] T010 [P] [US1] Contract test for [endpoint] in tests/contract/test_[name].py
-- [ ] T011 [P] [US1] Integration test for [user journey] in tests/integration/test_[name].py
+- [ ] T010 [P] [US1] Contract test for [endpoint] in tests/contract/test\_[name].py
+- [ ] T011 [P] [US1] Integration test for [user journey] in tests/integration/test\_[name].py
 
 ### Implementation for User Story 1
 
@@ -107,8 +122,8 @@ Examples of foundational tasks (adjust based on your project):
 
 ### Tests for User Story 2 (OPTIONAL - only if tests requested) ⚠️
 
-- [ ] T018 [P] [US2] Contract test for [endpoint] in tests/contract/test_[name].py
-- [ ] T019 [P] [US2] Integration test for [user journey] in tests/integration/test_[name].py
+- [ ] T018 [P] [US2] Contract test for [endpoint] in tests/contract/test\_[name].py
+- [ ] T019 [P] [US2] Integration test for [user journey] in tests/integration/test\_[name].py
 
 ### Implementation for User Story 2
 
@@ -129,8 +144,8 @@ Examples of foundational tasks (adjust based on your project):
 
 ### Tests for User Story 3 (OPTIONAL - only if tests requested) ⚠️
 
-- [ ] T024 [P] [US3] Contract test for [endpoint] in tests/contract/test_[name].py
-- [ ] T025 [P] [US3] Integration test for [user journey] in tests/integration/test_[name].py
+- [ ] T024 [P] [US3] Contract test for [endpoint] in tests/contract/test\_[name].py
+- [ ] T025 [P] [US3] Integration test for [user journey] in tests/integration/test\_[name].py
 
 ### Implementation for User Story 3
 
@@ -156,6 +171,17 @@ Examples of foundational tasks (adjust based on your project):
 - [ ] TXXX [P] Additional unit tests (if requested) in tests/unit/
 - [ ] TXXX Security hardening
 - [ ] TXXX Run quickstart.md validation
+
+**For React Native/Expo Mobile Apps - Constitution Compliance**:
+
+- [ ] TXXX Verify all screens handle Safe Areas (Notch/Dynamic Island)
+- [ ] TXXX Audit all touchable elements for 44px min height and accessibilityLabel
+- [ ] TXXX Performance audit: Verify 60fps animations and instant interactions
+- [ ] TXXX Code audit: No inline style objects, proper absolute imports
+- [ ] TXXX Platform handling: No Platform.OS in render logic, proper file extensions used
+- [ ] TXXX Type safety: No `any` types without justification, strict mode passing
+- [ ] TXXX FlashList usage: Verify FlatList not used for data sets > 20 items
+- [ ] TXXX Error boundaries: Verify react-error-boundary configured correctly
 
 ---
 

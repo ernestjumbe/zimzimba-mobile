@@ -1,0 +1,21 @@
+node_modules/
+dist/
+build/
+coverage/
+.expo/
+.expo-shared/
+*.log
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Generated native folders
+/ios
+/android
+
+# Minified files
+*.min.js
+
+# Generated types
+expo-env.d.ts
+*.tsbuildinfo

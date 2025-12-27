@@ -17,21 +17,31 @@
   the iteration process.
 -->
 
-**Language/Version**: [e.g., Python 3.11, Swift 5.9, Rust 1.75 or NEEDS CLARIFICATION]  
-**Primary Dependencies**: [e.g., FastAPI, UIKit, LLVM or NEEDS CLARIFICATION]  
-**Storage**: [if applicable, e.g., PostgreSQL, CoreData, files or N/A]  
-**Testing**: [e.g., pytest, XCTest, cargo test or NEEDS CLARIFICATION]  
-**Target Platform**: [e.g., Linux server, iOS 15+, WASM or NEEDS CLARIFICATION]
+**Language/Version**: [e.g., TypeScript 5.x, Python 3.11, Swift 5.9, Rust 1.75 or NEEDS CLARIFICATION]  
+**Primary Dependencies**: [e.g., React Native (Expo SDK), FastAPI, UIKit, LLVM or NEEDS CLARIFICATION]  
+**Storage**: [if applicable, e.g., react-native-mmkv, PostgreSQL, CoreData, files or N/A]  
+**Testing**: [e.g., Jest + React Native Testing Library, Maestro, pytest, XCTest or NEEDS CLARIFICATION]  
+**Target Platform**: [e.g., iOS 15+ / Android 11+, Linux server, WASM or NEEDS CLARIFICATION]
 **Project Type**: [single/web/mobile - determines source structure]  
-**Performance Goals**: [domain-specific, e.g., 1000 req/s, 10k lines/sec, 60 fps or NEEDS CLARIFICATION]  
-**Constraints**: [domain-specific, e.g., <200ms p95, <100MB memory, offline-capable or NEEDS CLARIFICATION]  
+**Performance Goals**: [domain-specific, e.g., 60fps animations, 1000 req/s, 10k lines/sec or NEEDS CLARIFICATION]  
+**Constraints**: [domain-specific, e.g., Native-first UX, <200ms p95, <100MB memory, offline-capable or NEEDS CLARIFICATION]  
 **Scale/Scope**: [domain-specific, e.g., 10k users, 1M LOC, 50 screens or NEEDS CLARIFICATION]
 
 ## Constitution Check
 
-*GATE: Must pass before Phase 0 research. Re-check after Phase 1 design.*
+_GATE: Must pass before Phase 0 research. Re-check after Phase 1 design._
 
-[Gates determined based on constitution file]
+**Required Verifications**:
+
+- [ ] Native-First Performance: Feature maintains 60fps animations and instant interactions
+- [ ] Universal by Default: Cross-platform code used unless platform divergence justified
+- [ ] Type Safety: Strict TypeScript enabled, no `any` types without justification
+- [ ] Zero Legacy: Uses New Architecture (Fabric/TurboModules), no legacy bridge dependencies
+- [ ] Technology Stack Compliance: Uses approved libraries (NativeWind, TanStack Query, Zustand, FlashList, etc.)
+- [ ] Development Guidelines: Absolute imports, functional components, proper styling approach
+- [ ] Operational Constraints: Safe Areas, Accessibility (44px min height, labels), Error boundaries
+
+[Additional gates specific to this feature]
 
 ## Project Structure
 
@@ -48,6 +58,7 @@ specs/[###-feature]/
 ```
 
 ### Source Code (repository root)
+
 <!--
   ACTION REQUIRED: Replace the placeholder tree below with the concrete layout
   for this feature. Delete unused options and expand the chosen structure with
@@ -83,12 +94,35 @@ frontend/
 │   └── services/
 └── tests/
 
-# [REMOVE IF UNUSED] Option 3: Mobile + API (when "iOS/Android" detected)
-api/
-└── [same as backend above]
+# [REMOVE IF UNUSED] Option 3: React Native/Expo Mobile (when "mobile", "iOS/Android", or "Expo" detected)
+src/
+├── features/              # Feature-based organization (REQUIRED per constitution)
+│   ├── auth/
+│   ├── feed/
+│   └── profile/
+├── components/            # Shared UI components
+│   └── ui/               # UI library components (React Native Reusables/Gluestack)
+├── lib/                  # Utilities and helpers
+├── hooks/                # Shared hooks
+├── services/             # API/business logic services
+├── stores/               # Zustand stores (global state)
+└── types/                # TypeScript types and interfaces
 
-ios/ or android/
-└── [platform-specific structure: feature modules, UI flows, platform tests]
+__tests__/                # Tests (Jest + React Native Testing Library)
+├── unit/
+├── integration/
+└── e2e/                  # Maestro E2E tests
+
+# [REMOVE IF UNUSED] Option 4: Mobile + API (when separate backend required)
+api/
+├── src/
+│   ├── models/
+│   ├── services/
+│   └── routes/
+└── tests/
+
+mobile/                   # Or use root for mobile app
+└── [same as Option 3 structure above]
 ```
 
 **Structure Decision**: [Document the selected structure and reference the real
@@ -98,7 +132,7 @@ directories captured above]
 
 > **Fill ONLY if Constitution Check has violations that must be justified**
 
-| Violation | Why Needed | Simpler Alternative Rejected Because |
-|-----------|------------|-------------------------------------|
-| [e.g., 4th project] | [current need] | [why 3 projects insufficient] |
-| [e.g., Repository pattern] | [specific problem] | [why direct DB access insufficient] |
+| Violation                  | Why Needed         | Simpler Alternative Rejected Because |
+| -------------------------- | ------------------ | ------------------------------------ |
+| [e.g., 4th project]        | [current need]     | [why 3 projects insufficient]        |
+| [e.g., Repository pattern] | [specific problem] | [why direct DB access insufficient]  |
