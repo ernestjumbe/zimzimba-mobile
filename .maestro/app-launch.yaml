@@ -1,0 +1,11 @@
+# Maestro E2E Test: App Launch
+# 
+# Tests basic app launch and initialization.
+# Run: maestro test .maestro/app-launch.yaml
+
+appId: com.zimzimba.mobile
+---
+- launchApp
+- assertVisible: "Welcome to Zimzimba"
+- assertVisible: "Get Started"
+- takeScreenshot: screenshots/app-launch

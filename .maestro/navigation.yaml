@@ -1,0 +1,20 @@
+# Maestro E2E Test: Navigation Flow
+# 
+# Tests navigation from onboarding to home screen.
+# Run: maestro test .maestro/navigation.yaml
+
+appId: com.zimzimba.mobile
+---
+- launchApp
+- assertVisible: "Welcome to Zimzimba"
+
+# Navigate to home screen
+- tapOn: "Get Started"
+- assertVisible: "Home"
+- assertVisible: "Welcome! Your app is ready."
+
+# Take screenshot of home screen
+- takeScreenshot: screenshots/home-screen
+
+# Verify navigation worked
+- assertNotVisible: "Get Started"
