@@ -12,7 +12,7 @@ import { HomeScreen } from '@/features/home/HomeScreen';
 import { queryClient } from '@/lib/queryClient';
 import { initSentry } from '@/lib/sentry';
 import type { RootStackParamList } from '@/types/navigation';
-import '../global.css';
+import '../../global.css';
 
 // Initialize Sentry for error tracking
 initSentry();
